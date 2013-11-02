@@ -1,5 +1,5 @@
-#ifndef AnalysisDataFormats_TauAnalysis_NSVfitSingleParticleHypothesis_h
-#define AnalysisDataFormats_TauAnalysis_NSVfitSingleParticleHypothesis_h
+#ifndef AnalysisDataFormats_SVfit_SVfitSingleParticleHypothesis_h
+#define AnalysisDataFormats_SVfit_SVfitSingleParticleHypothesis_h
 
 #include "DataFormats/Candidate/interface/Candidate.h"
 #include "DataFormats/TrackReco/interface/Track.h"
@@ -7,27 +7,27 @@
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
 #include "DataFormats/Common/interface/Ptr.h"
 
-#include "AnalysisDataFormats/TauAnalysis/interface/NSVfitSingleParticleHypothesisBase.h"
+#include "AnalysisDataFormats/SVfit/interface/SVfitSingleParticleHypothesisBase.h"
 
 #include <string>
 
-class NSVfitResonanceHypothesis;
+class SVfitResonanceHypothesis;
 
-class NSVfitSingleParticleHypothesis : public NSVfitSingleParticleHypothesisBase
+class SVfitSingleParticleHypothesis : public SVfitSingleParticleHypothesisBase
 {
  public:
 
-  NSVfitSingleParticleHypothesis();
-  NSVfitSingleParticleHypothesis(const std::string&, int);
-  NSVfitSingleParticleHypothesis(const edm::Ptr<reco::Candidate>&, const std::string&, int);
-  NSVfitSingleParticleHypothesis(const NSVfitSingleParticleHypothesis&);
+  SVfitSingleParticleHypothesis();
+  SVfitSingleParticleHypothesis(const std::string&, int);
+  SVfitSingleParticleHypothesis(const edm::Ptr<reco::Candidate>&, const std::string&, int);
+  SVfitSingleParticleHypothesis(const SVfitSingleParticleHypothesis&);
 
-  NSVfitSingleParticleHypothesis& operator=(const NSVfitSingleParticleHypothesis&);
+  SVfitSingleParticleHypothesis& operator=(const SVfitSingleParticleHypothesis&);
 
-  ~NSVfitSingleParticleHypothesis() {}
+  ~SVfitSingleParticleHypothesis() {}
 
-  const NSVfitResonanceHypothesis* mother() const { return mother_; }
-  void setMother(const NSVfitResonanceHypothesis* mother) 
+  const SVfitResonanceHypothesis* mother() const { return mother_; }
+  void setMother(const SVfitResonanceHypothesis* mother) 
   {
     mother_ = mother;
   }
@@ -42,7 +42,7 @@ class NSVfitSingleParticleHypothesis : public NSVfitSingleParticleHypothesisBase
   /// reconstructed Pt, eta, phi
   ///
   /// NOTE: Pt, eta, phi will be valid only in case
-  ///       NSVfitAlgorithmByIntegration2 algorithm (Markov Chain integration) is used
+  ///       SVfitAlgorithmByIntegration2 algorithm (Markov Chain integration) is used
   ///  
   double pt() const { return pt_; }
   double ptErrUp() const { return ptErrUp_; }
@@ -59,7 +59,7 @@ class NSVfitSingleParticleHypothesis : public NSVfitSingleParticleHypothesisBase
 
   void print(std::ostream& stream) const
   {
-    stream << "<NSVfitSingleParticleHypothesis::print>:" << std::endl;
+    stream << "<SVfitSingleParticleHypothesis::print>:" << std::endl;
     stream << " name = " << name_ << std::endl;
     stream << " barcode = " << barcode_ << std::endl;
     stream << " particle(id:key) = " << particle_.id() << ":" << particle_.key() << std::endl;
@@ -80,15 +80,15 @@ class NSVfitSingleParticleHypothesis : public NSVfitSingleParticleHypothesisBase
   enum { kPolUndefined, kPolL, kPolR };
   enum { kPolPlus = 1, kPolMinus = 2 };
 
-  friend class NSVfitResonanceBuilder;
-  friend class NSVfitAlgorithmByLikelihoodMaximization;  
-  friend class NSVfitAlgorithmByIntegration2;
+  friend class SVfitResonanceBuilder;
+  friend class SVfitAlgorithmByLikelihoodMaximization;  
+  friend class SVfitAlgorithmByIntegration2;
   template<typename T1, typename T2> friend class CompositePtrCandidateT1T2MEt;
 
  protected:
 
   /// pointer to resonance hypothesis object
-  const NSVfitResonanceHypothesis* mother_;
+  const SVfitResonanceHypothesis* mother_;
 
   /// momentum of particle before fit, after fit
   /// and difference (after - before) fit
@@ -100,7 +100,7 @@ class NSVfitSingleParticleHypothesis : public NSVfitSingleParticleHypothesisBase
   /// plus -1 sigma and +1 sigma limits
   ///
   /// NOTE: uncertainties on Pt, eta, phi will be valid only in case
-  ///       NSVfitAlgorithmByIntegration2 algorithm (Markov Chain integration) is used
+  ///       SVfitAlgorithmByIntegration2 algorithm (Markov Chain integration) is used
   ///  
   double pt_;
   double ptErrUp_;

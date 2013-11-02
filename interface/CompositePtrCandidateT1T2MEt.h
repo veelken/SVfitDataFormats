@@ -24,7 +24,7 @@
 #include "DataFormats/Common/interface/Ptr.h"
 #include "DataFormats/Common/interface/OwnVector.h"
 
-#include "AnalysisDataFormats/SVfit/interface/NSVfitResonanceHypothesisSummary.h"
+#include "AnalysisDataFormats/SVfit/interface/SVfitResonanceHypothesisSummary.h"
 #include "AnalysisDataFormats/SVfit/interface/tauAnalysisAuxFunctions.h"
 
 #include <TMatrixD.h>
@@ -211,20 +211,15 @@ class CompositePtrCandidateT1T2MEt : public reco::LeafCandidate
   /// clone  object
   CompositePtrCandidateT1T2MEt<T1,T2>* clone() const { return new CompositePtrCandidateT1T2MEt<T1,T2>(*this); }
 
-  friend std::ostream& operator<<(std::ostream& out, const CompositePtrCandidateT1T2MEt<T1,T2>& dic) {
-    out << "Di-Candidate m = " << dic.mass();
-    return out;
-  }
-
-  /// get Mtautau solutions reconstructed by NSVfit algorithm
-  bool hasNSVFitSolutions() const { return (nSVfitSolutions_.begin() != nSVfitSolutions_.end()); }
-  const NSVfitResonanceHypothesisSummary* nSVfitSolution(const std::string& algorithm, int* errorFlag = 0) const
+  /// get Mtautau solutions reconstructed by SVfit algorithm
+  bool hasSVFitSolutions() const { return (svFitSolutions_.begin() != svFitSolutions_.end()); }
+  const SVfitResonanceHypothesisSummary* svFitSolution(const std::string& algorithm, int* errorFlag = 0) const
   {
-    const NSVfitResonanceHypothesisSummary* retVal = 0;
-    for ( std::vector<NSVfitResonanceHypothesisSummary>::const_iterator nSVfitSolution = nSVfitSolutions_.begin();
-	  nSVfitSolution != nSVfitSolutions_.end(); ++nSVfitSolution ) {
-      if ( nSVfitSolution->name() == algorithm ) {
-	retVal = &(*nSVfitSolution);
+    const SVfitResonanceHypothesisSummary* retVal = 0;
+    for ( std::vector<SVfitResonanceHypothesisSummary>::const_iterator svFitSolution = svFitSolutions_.begin();
+	  svFitSolution != svFitSolutions_.end(); ++svFitSolution ) {
+      if ( svFitSolution->name() == algorithm ) {
+	retVal = &(*svFitSolution);
 	break;
       }
     }
@@ -233,14 +228,14 @@ class CompositePtrCandidateT1T2MEt : public reco::LeafCandidate
       if ( errorFlag ) {
 	(*errorFlag) = 1;
       } else {
-	edm::LogError ("CompositePtrCandidateT1T2MEt::nSVfitSolution") 
-	  << " No nSVfit solution defined for algorithm = " << algorithm << " !!";
+	edm::LogError ("CompositePtrCandidateT1T2MEt::svFitSolution") 
+	  << " No svFit solution defined for algorithm = " << algorithm << " !!";
 	std::cout << "available = { " << std::endl;
 	bool isFirst = true;
-	for ( std::vector<NSVfitResonanceHypothesisSummary>::const_iterator nSVfitSolution = nSVfitSolutions_.begin();
-	      nSVfitSolution != nSVfitSolutions_.end(); ++nSVfitSolution ) {
+	for ( std::vector<SVfitResonanceHypothesisSummary>::const_iterator svFitSolution = svFitSolutions_.begin();
+	      svFitSolution != svFitSolutions_.end(); ++svFitSolution ) {
 	  if ( !isFirst ) std::cout << ", ";
-	  std::cout << nSVfitSolution->name();
+	  std::cout << svFitSolution->name();
 	  isFirst = false;
 	}
 	std::cout << " }" << std::endl;
@@ -329,9 +324,9 @@ class CompositePtrCandidateT1T2MEt : public reco::LeafCandidate
   void setTauPairMassMin(double mTauTauMin) { mTauTauMin_ = mTauTauMin; }
   void setTauPairMassMin_isValid(bool mTauTauMin_isValid) { mTauTauMinIsValid_ = mTauTauMin_isValid; }
 
-  void addNSVfitSolution(const NSVfitResonanceHypothesisSummary& solution)
+  void addSVfitSolution(const SVfitResonanceHypothesisSummary& solution)
   {
-    nSVfitSolutions_.push_back(solution);
+    svFitSolutions_.push_back(solution);
   }
 
   /// references/pointers to decay products
@@ -406,8 +401,8 @@ class CompositePtrCandidateT1T2MEt : public reco::LeafCandidate
   double mTauTauMin_;
   bool mTauTauMinIsValid_;
 
-  /// Mtautau solutions reconstructed by NSVfit algorithm
-  std::vector<NSVfitResonanceHypothesisSummary> nSVfitSolutions_;
+  /// Mtautau solutions reconstructed by SVfit algorithm
+  std::vector<SVfitResonanceHypothesisSummary> svFitSolutions_;
 };
 
 #include "DataFormats/PatCandidates/interface/Electron.h"

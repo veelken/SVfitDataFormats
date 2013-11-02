@@ -1,14 +1,14 @@
-#ifndef AnalysisDataFormats_TauAnalysis_NSVfitSingleNeutrinoHypothesisBaseT_h
-#define AnalysisDataFormats_TauAnalysis_NSVfitSingleNeutrinoHypothesisBaseT_h
+#ifndef AnalysisDataFormats_SVfit_SVfitSingleNeutrinoHypothesisBaseT_h
+#define AnalysisDataFormats_SVfit_SVfitSingleNeutrinoHypothesisBaseT_h
 
 /*
- * NSVfitSingleNeutrinoHypothesisBaseT
+ * SVfitSingleNeutrinoHypothesisBaseT
  *
  * Class representing neutrinos not originating from tau lepton decays
  * (e.g. produced in decays of W bosons)
  *
- * NOTE: this base-class is used to make persistent solutions of NSVfitAlgorithmByIntegration;
- *       solutions of NSVfitAlgorithmByLikelihoodMaximization are of type NSVfitTauDecayHypothesis
+ * NOTE: this base-class is used to make persistent solutions of SVfitAlgorithmByIntegration;
+ *       solutions of SVfitAlgorithmByLikelihoodMaximization are of type SVfitTauDecayHypothesis
  *
  * Authors: Evan K. Friis, Christian Veelken, UC Davis
  *
@@ -18,32 +18,32 @@
 #include "DataFormats/Common/interface/Ptr.h"
 
 template <typename T>
-class NSVfitSingleNeutrinoHypothesisBaseT : public T
+class SVfitSingleNeutrinoHypothesisBaseT : public T
 {
  public:
 
-  NSVfitSingleNeutrinoHypothesisBaseT() {}
-  NSVfitSingleNeutrinoHypothesisBaseT(const std::string& name, int barcode)
+  SVfitSingleNeutrinoHypothesisBaseT() {}
+  SVfitSingleNeutrinoHypothesisBaseT(const std::string& name, int barcode)
     : T(name, barcode) 
   {}
-  NSVfitSingleNeutrinoHypothesisBaseT(const NSVfitSingleNeutrinoHypothesisBaseT& bluePrint)
+  SVfitSingleNeutrinoHypothesisBaseT(const SVfitSingleNeutrinoHypothesisBaseT& bluePrint)
     : T(bluePrint)
   {}
 
-  ~NSVfitSingleNeutrinoHypothesisBaseT() {}
+  ~SVfitSingleNeutrinoHypothesisBaseT() {}
 
-  NSVfitSingleNeutrinoHypothesisBaseT& operator=(const NSVfitSingleNeutrinoHypothesisBaseT& bluePrint)
+  SVfitSingleNeutrinoHypothesisBaseT& operator=(const SVfitSingleNeutrinoHypothesisBaseT& bluePrint)
   {
     T::operator=(bluePrint);
     return (*this);
   }
 
-  NSVfitSingleNeutrinoHypothesisBaseT* clone() const { return new NSVfitSingleNeutrinoHypothesisBaseT(*this); }
-  NSVfitSingleParticleHypothesisBase* reduceToBase() const { return this->clone(); }
+  SVfitSingleNeutrinoHypothesisBaseT* clone() const { return new SVfitSingleNeutrinoHypothesisBaseT(*this); }
+  SVfitSingleParticleHypothesisBase* reduceToBase() const { return this->clone(); }
 };
 
-#include "AnalysisDataFormats/TauAnalysis/interface/NSVfitSingleParticleHypothesisBase.h"
+#include "AnalysisDataFormats/SVfit/interface/SVfitSingleParticleHypothesisBase.h"
 
-typedef NSVfitSingleNeutrinoHypothesisBaseT<NSVfitSingleParticleHypothesisBase> NSVfitSingleNeutrinoHypothesisBase;
+typedef SVfitSingleNeutrinoHypothesisBaseT<SVfitSingleParticleHypothesisBase> SVfitSingleNeutrinoHypothesisBase;
 
-#endif /* end of include guard: AnalysisDataFormats_TauAnalysis_NSVfitSingleNeutrinoHypothesisBaseT_h */
+#endif /* end of include guard: AnalysisDataFormats_SVfit_SVfitSingleNeutrinoHypothesisBaseT_h */
