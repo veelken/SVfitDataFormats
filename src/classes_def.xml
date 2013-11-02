@@ -1,0 +1,123 @@
+<lcgdict>
+  <!-- create dictionaries for CandidatePair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<reco::Candidate, reco::Candidate>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<reco::Candidate, reco::Candidate> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<reco::Candidate, reco::Candidate>>"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<reco::Candidate, reco::Candidate> > >"/>
+  <class name="edm::Ref<DiCandidatePairCollection,DiCandidatePair,edm::refhelper::FindUsingAdvance<DiCandidatePairCollection,DiCandidatePair> >"/>
+  <class name="edm::RefVector<DiCandidatePairCollection,DiCandidatePair,edm::refhelper::FindUsingAdvance<DiCandidatePairCollection,DiCandidatePair> >"/>
+  <class name="edm::RefProd<DiCandidatePairCollection>"/>
+
+  <!-- create dictionaries for SVfit solution data-formats -->
+  <class name="SVfitEventHypothesisBase"/>
+  <class name="SVfitEventHypothesis"/>
+  <class name="SVfitEventHypothesisByIntegration">
+    <field name="histMassResults_" transient="true"/>
+  </class>
+  <class name="SVfitResonanceHypothesisBase"/>
+  <class name="SVfitResonanceHypothesis">
+    <field name="eventHyp_" transient="true"/>
+  </class>
+  <class name="SVfitResonanceHypothesisByIntegration"/>
+  <class name="SVfitResonanceHypothesisSummary"/>
+  <class name="SVfitSingleParticleHypothesisBase"/>
+  <class name="SVfitSingleParticleHypothesis">
+    <field name="mother_" transient="true"/>
+  </class>
+  <class name="SVfitTauDecayHypothesisBaseT<SVfitSingleParticleHypothesisBase>"/>
+  <class name="SVfitTauDecayHypothesis">
+    <field name="tracks_" transient="true"/>
+    <field name="selTracks_" transient="true"/>
+    <field name="selTrackTrajectories_" transient="true"/>
+    <field name="leadTrack_" transient="true"/>
+    <field name="leadTrackTrajectory_" transient="true"/>    
+    <field name="leadTrackExtrapolationError_" transient="true"/>
+    <field name="expectedFlightPath_unit_" transient="true"/>
+    <field name="expectedDecayDistanceJacobiFactor_" transient="true"/>
+  </class>
+  <class name="SVfitTauToDaughtersHypothesisBaseT1T2<SVfitTauDecayHypothesisBase, pat::Electron>"/>
+  <class name="SVfitTauToDaughtersHypothesisBaseT1T2<SVfitTauDecayHypothesisBase, pat::Muon>"/>
+  <class name="SVfitTauToDaughtersHypothesisBaseT1T2<SVfitTauDecayHypothesisBase, pat::Tau>"/>
+  <class name="SVfitTauToDaughtersHypothesisBaseT1T2<SVfitTauDecayHypothesis, pat::Electron>"/>
+  <class name="SVfitTauToDaughtersHypothesisBaseT1T2<SVfitTauDecayHypothesis, pat::Muon>"/>
+  <class name="SVfitTauToHadHypothesis"/>
+  <class name="SVfitStableSingleParticleHypothesisBase"/>
+  <class name="SVfitSingleNeutrinoHypothesisBase"/>
+  <class name="SVfitSingleParticleHypothesisSummary"/>
+  <class name="std::vector<SVfitEventHypothesisBase>"/>
+  <class name="std::vector<SVfitEventHypothesis>"/>
+  <class name="std::vector<SVfitEventHypothesisByIntegration>"/>
+  <class name="edm::Wrapper<std::vector<SVfitEventHypothesisBase> >"/>
+  <class name="edm::Wrapper<std::vector<SVfitEventHypothesis> >"/>
+  <class name="edm::Wrapper<std::vector<SVfitEventHypothesisByIntegration> >"/>
+  <class name="std::vector<SVfitEventHypothesisBase*>"/>
+  <class name="edm::OwnVector<SVfitEventHypothesisBase, edm::ClonePolicy<SVfitEventHypothesisBase> >"/>
+  <class name="std::vector<SVfitResonanceHypothesisBase*>"/>
+  <class name="edm::OwnVector<SVfitResonanceHypothesisBase, edm::ClonePolicy<SVfitResonanceHypothesisBase> >"/>
+  <class name="std::vector<SVfitResonanceHypothesisSummary>"/>
+  <class name="std::auto_ptr<TH1>"/>
+  <class name="std::vector<SVfitSingleParticleHypothesisBase*>"/>
+  <class name="edm::OwnVector<SVfitSingleParticleHypothesisBase, edm::ClonePolicy<SVfitSingleParticleHypothesisBase> >"/>
+  <class name="std::vector<SVfitSingleParticleHypothesisSummary*>"/>
+  <class name="edm::OwnVector<SVfitSingleParticleHypothesisSummary, edm::ClonePolicy<SVfitSingleParticleHypothesisSummary> >"/>
+
+  <!-- create dictionaries for PATElecPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron> > >"/>
+  <class name="edm::Ref<PATDiElecPairCollection,PATDiElecPair,edm::refhelper::FindUsingAdvance<PATDiElecPairCollection,PATDiElecPair> >"/>
+  <class name="edm::RefVector<PATDiElecPairCollection,PATDiElecPair,edm::refhelper::FindUsingAdvance<PATDiElecPairCollection,PATDiElecPair> >"/>
+  <class name="edm::RefProd<PATDiElecPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron> >"/>
+
+  <!-- create dictionaries for PATMuPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon> > >"/>
+  <class name="edm::Ref<PATDiMuPairCollection,PATDiMuPair,edm::refhelper::FindUsingAdvance<PATDiMuPairCollection,PATDiMuPair> >"/>
+  <class name="edm::RefVector<PATDiMuPairCollection,PATDiMuPair,edm::refhelper::FindUsingAdvance<PATDiMuPairCollection,PATDiMuPair> >"/>
+  <class name="edm::RefProd<PATDiMuPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon> >"/>
+
+  <!-- create dictionaries for PATElecTauPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau> > >"/>
+  <class name="edm::Ref<PATElecTauPairCollection,PATElecTauPair,edm::refhelper::FindUsingAdvance<PATElecTauPairCollection,PATElecTauPair> >"/>
+  <class name="edm::RefVector<PATElecTauPairCollection,PATElecTauPair,edm::refhelper::FindUsingAdvance<PATElecTauPairCollection,PATElecTauPair> >"/>
+  <class name="edm::RefProd<PATElecTauPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau> >"/>
+
+  <!-- create dictionaries for PATMuTauPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau> > >"/>
+  <class name="edm::Ref<PATMuTauPairCollection,PATMuTauPair,edm::refhelper::FindUsingAdvance<PATMuTauPairCollection,PATMuTauPair> >"/>
+  <class name="edm::RefVector<PATMuTauPairCollection,PATMuTauPair,edm::refhelper::FindUsingAdvance<PATMuTauPairCollection,PATMuTauPair> >"/>
+  <class name="edm::RefProd<PATMuTauPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau> >"/>
+
+  <!-- create dictionaries for PATDiTauPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau> > >"/>
+  <class name="edm::Ref<PATDiTauPairCollection,PATDiTauPair,edm::refhelper::FindUsingAdvance<PATDiTauPairCollection,PATDiTauPair> >"/>
+  <class name="edm::RefVector<PATDiTauPairCollection,PATDiTauPair,edm::refhelper::FindUsingAdvance<PATDiTauPairCollection,PATDiTauPair> >"/>
+  <class name="edm::RefProd<PATDiTauPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau> >"/>
+
+  <!-- create dictionaries for PATElecMuPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> > >"/>
+  <class name="edm::Ref<PATElecMuPairCollection,PATElecMuPair,edm::refhelper::FindUsingAdvance<PATElecMuPairCollection,PATElecMuPair> >"/>
+  <class name="edm::RefVector<PATElecMuPairCollection,PATElecMuPair,edm::refhelper::FindUsingAdvance<PATElecMuPairCollection,PATElecMuPair> >"/>
+  <class name="edm::RefProd<PATElecMuPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> >"/>
+</lcgdict>
