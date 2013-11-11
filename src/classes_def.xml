@@ -43,6 +43,7 @@
   <class name="SVfitTauToHadHypothesis"/>
   <class name="SVfitStableSingleParticleHypothesisBase"/>
   <class name="SVfitSingleNeutrinoHypothesisBase"/>
+  <class name="SVfitSingleLeptonHypothesisBase"/>
   <class name="SVfitSingleParticleHypothesisSummary"/>
   <class name="std::vector<SVfitEventHypothesisBase>"/>
   <class name="std::vector<SVfitEventHypothesis>"/>

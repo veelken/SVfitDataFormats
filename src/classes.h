@@ -14,6 +14,7 @@
 #include "AnalysisDataFormats/SVfit/interface/SVfitTauToHadHypothesis.h"
 #include "AnalysisDataFormats/SVfit/interface/SVfitStableSingleParticleHypothesisBaseT.h"
 #include "AnalysisDataFormats/SVfit/interface/SVfitSingleNeutrinoHypothesisBaseT.h"
+#include "AnalysisDataFormats/SVfit/interface/SVfitSingleLeptonHypothesisBaseT.h"
 #include "AnalysisDataFormats/SVfit/interface/SVfitSingleParticleHypothesisSummary.h"
 
 #include "DataFormats/Common/interface/AssociationVector.h"
@@ -57,6 +58,7 @@ namespace {
     SVfitTauToHadHypothesis dummySVfitTauToHadHypothesis;
     SVfitStableSingleParticleHypothesisBase dummySVfitStableSingleParticleHypothesisBase;
     SVfitSingleNeutrinoHypothesisBase dummySVfitSingleNeutrinoHypothesisBase;
+    SVfitSingleLeptonHypothesisBase dummySVfitSingleLeptonHypothesisBase;
     SVfitSingleParticleHypothesisSummary dummySVfitSingleParticleHypothesisSummary;
     std::vector<SVfitEventHypothesisBase> dummySVfitEventHypothesisBaseCollection;
     std::vector<SVfitEventHypothesis> dummySVfitEventHypothesisCollection;

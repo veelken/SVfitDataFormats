@@ -8,7 +8,7 @@
  * (e.g. produced in decays of W bosons)
  *
  * NOTE: this base-class is used to make persistent solutions of SVfitAlgorithmByIntegration;
- *       solutions of SVfitAlgorithmByLikelihoodMaximization are of type SVfitTauDecayHypothesis
+ *       solutions of SVfitAlgorithmByLikelihoodMaximization are of type SVfitSingleNeutrinoHypothesis
  *
  * Authors: Evan K. Friis, Christian Veelken, UC Davis
  *
