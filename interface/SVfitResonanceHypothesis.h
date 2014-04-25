@@ -69,11 +69,11 @@ class SVfitResonanceHypothesis : public SVfitResonanceHypothesisBase
     stream << " name = " << name_ << std::endl;
     stream << " barcode = " << barcode_ << std::endl;
     stream << " p4: Pt = " << p4_.pt() << ","
-	   << " eta = " << p4_.eta() << ", phi = " << p4_.phi() << std::endl;
+	   << " eta = " << p4_.eta() << ", phi = " << p4_.phi() << ", mass = " << p4_.mass() << std::endl;
     stream << " p4_fitted: Pt = " << p4_fitted().pt() << ","
-	   << " eta = " << p4_fitted().eta() << ", phi = " << p4_fitted().phi() << std::endl;    
-    if ( mass_ >= 0. ) stream << "--> mass = " << mass_ << " + " << massErrUp_ << " - " << massErrDown_ << std::endl;
-    else stream << "--> mass = " << p4_fitted().mass() << std::endl;
+	   << " eta = " << p4_fitted().eta() << ", phi = " << p4_fitted().phi() << ",";
+    if ( mass_ >= 0. ) stream << " mass = " << mass_ << " + " << massErrUp_ << " - " << massErrDown_ << std::endl;
+    else stream << " mass = " << p4_fitted().mass() << std::endl;
     stream << "(prod. angle = " << prod_angle_rf_ << ")" << std::endl;
     stream << " isValidSolution = " << isValidSolution_ << std::endl;
     for ( edm::OwnVector<SVfitSingleParticleHypothesisBase>::const_iterator daughter = daughters_.begin();

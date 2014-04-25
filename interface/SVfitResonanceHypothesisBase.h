@@ -39,8 +39,8 @@ class SVfitResonanceHypothesisBase
 
   /// fit hypotheses of daughter particles
   size_t numDaughters() const { return daughters_.size(); }
-  SVfitSingleParticleHypothesisBase* daughter(size_t idx) { return &daughters_[idx]; }
-  const SVfitSingleParticleHypothesisBase* daughter(size_t idx) const { return &daughters_[idx]; }
+  SVfitSingleParticleHypothesisBase* daughter(size_t idx) { return idx < daughters_.size() ? &daughters_[idx] : 0; }
+  const SVfitSingleParticleHypothesisBase* daughter(size_t idx) const { return idx < daughters_.size() ? &daughters_[idx] : 0; }
   const SVfitSingleParticleHypothesisBase* daughter(const std::string& name) const
   {
     const SVfitSingleParticleHypothesisBase* retVal = 0;

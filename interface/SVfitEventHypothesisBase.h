@@ -57,8 +57,8 @@ class SVfitEventHypothesisBase
 
   /// fit hypotheses of lepton-pair resonances
   size_t numResonances() const { return resonances_.size(); }
-  SVfitResonanceHypothesisBase* resonance(size_t idx) { return &resonances_[idx]; }
-  const SVfitResonanceHypothesisBase* resonance(size_t idx) const { return &resonances_[idx]; }
+  SVfitResonanceHypothesisBase* resonance(size_t idx) { return idx < resonances_.size() ? &resonances_[idx] : 0; }
+  const SVfitResonanceHypothesisBase* resonance(size_t idx) const { return idx < resonances_.size() ? &resonances_[idx] : 0; }
   const SVfitResonanceHypothesisBase* resonance(const std::string& name) const
   {
     const SVfitResonanceHypothesisBase* retVal = 0;

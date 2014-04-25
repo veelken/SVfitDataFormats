@@ -49,6 +49,20 @@ class SVfitResonanceHypothesisSummary
   double phiErrDown() const { return phiErrDown_; }
   bool phi_isValid() const { return phi_isValid_; }
 
+  /// fit hypotheses of daughter particles
+  size_t numDaughters() const { return daughters_.size(); }
+  SVfitSingleParticleHypothesisSummary* daughter(size_t idx) { return idx < daughters_.size() ? &daughters_[idx] : 0; }
+  const SVfitSingleParticleHypothesisSummary* daughter(size_t idx) const { return idx < daughters_.size() ? &daughters_[idx] : 0; }
+  const SVfitSingleParticleHypothesisSummary* daughter(const std::string& name) const
+  {
+    const SVfitSingleParticleHypothesisSummary* retVal = 0;
+    for ( edm::OwnVector<SVfitSingleParticleHypothesisSummary>::const_iterator daughter = daughters_.begin();
+	  daughter != daughters_.end(); ++daughter ) {
+      if ( daughter->name() == name ) retVal = &(*daughter);
+    }
+    return retVal;
+  }
+
   bool isValidSolution() const { return mass_isValid_; }
 
   virtual void print(std::ostream& stream) const
