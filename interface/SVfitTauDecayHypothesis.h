@@ -110,6 +110,7 @@ class SVfitTauDecayHypothesis : public SVfitTauDecayHypothesisBaseT<SVfitSingleP
   /// direction and mass of visible decay products
   const reco::Candidate::Vector& p3Vis_unit() const { return p3Vis_unit_; }
   double visMass() const { return visMass_; }
+  const reco::Candidate::LorentzVector& p4Vis_shifted() const { return p4Vis_shifted_; }
 
   /// energy ratio of visible decay products/tau lepton energy
   double visEnFracX() const { return visEnFracX_; }
@@ -176,6 +177,7 @@ class SVfitTauDecayHypothesis : public SVfitTauDecayHypothesisBaseT<SVfitSingleP
   /// direction and mass of visible decay products
   reco::Candidate::Vector p3Vis_unit_;
   double visMass_;
+  reco::Candidate::LorentzVector p4Vis_shifted_;
 
   /// energy ratio of visible decay products/tau lepton energy
   double visEnFracX_;
