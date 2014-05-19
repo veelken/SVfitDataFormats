@@ -17,6 +17,7 @@ typedef std::vector<PATElecTauPair> PATElecTauPairCollection;
 typedef std::vector<PATMuTauPair> PATMuTauPairCollection;
 typedef std::vector<PATDiTauPair> PATDiTauPairCollection;
 typedef std::vector<PATElecMuPair> PATElecMuPairCollection;
+typedef std::vector<PATMuElecPair> PATMuElecPairCollection;
 
 /// persistent reference to a CompositeRefCandidateT1T2MEt object
 typedef edm::Ref<DiCandidatePairCollection> DiCandidatePairRef;
@@ -26,6 +27,7 @@ typedef edm::Ref<PATElecTauPairCollection> PATElecTauPairRef;
 typedef edm::Ref<PATMuTauPairCollection> PATMuTauPairRef;
 typedef edm::Ref<PATDiTauPairCollection> PATDiTauPairRef;
 typedef edm::Ref<PATElecMuPairCollection> PATElecMuPairRef;
+typedef edm::Ref<PATMuElecPairCollection> PATMuElecPairRef;
 
 /// references to CompositeRefCandidateT1T2MEt collection
 typedef edm::RefProd<DiCandidatePairCollection> DiCandidatePairRefProd;
@@ -35,6 +37,7 @@ typedef edm::RefProd<PATElecTauPairCollection> PATElecTauPairRefProd;
 typedef edm::RefProd<PATMuTauPairCollection> PATMuTauPairRefProd;
 typedef edm::RefProd<PATDiTauPairCollection> PATDiTauPairRefProd;
 typedef edm::RefProd<PATElecMuPairCollection> PATElecMuPairRefProd;
+typedef edm::RefProd<PATMuElecPairCollection> PATMuElecPairRefProd;
 
 /// vector of references to CompositeRefCandidateT1T2MEt objects all in the same collection
 typedef edm::RefVector<DiCandidatePairCollection> DiCandidatePairRefVector;
@@ -44,5 +47,6 @@ typedef edm::RefVector<PATElecTauPairCollection> PATElecTauPairRefVector;
 typedef edm::RefVector<PATMuTauPairCollection> PATMuTauPairRefVector;
 typedef edm::RefVector<PATDiTauPairCollection> PATDiTauPairRefVector;
 typedef edm::RefVector<PATElecMuPairCollection> PATElecMuPairRefVector;
+typedef edm::RefVector<PATMuElecPairCollection> PATMuElecPairRefVector;
 
 #endif

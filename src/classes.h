@@ -148,5 +148,17 @@ namespace {
     edm::Ptr<PATElecMuPair> dummyPATElecMuPairPtr;
     edm::AssociationVector<edm::RefProd<PATElecMuPairCollection>, std::vector<int> > dummyPATElecMuPairToMEtAssociation;
     edm::Wrapper<edm::AssociationVector<edm::RefProd<PATElecMuPairCollection>, std::vector<int> > > dummyPATElecMuPairToMEtAssociationWrapper;
+
+    /// create dictionaries for PATMuElecPair objects
+    PATMuElecPair dummyPATMuElecPair;
+    edm::Wrapper<PATMuElecPair> dummyPATMuElecPairWrapper;
+    PATMuElecPairCollection dummyPATMuElecPairCollection;
+    edm::Wrapper<PATMuElecPairCollection> dummyPATMuElecPairCollectionWrapper;
+    edm::Ref<PATMuElecPairCollection> dummyPATMuElecPairRef;
+    edm::RefVector<PATMuElecPairCollection> dummyPATMuElecPairRefVector;
+    edm::RefProd<PATMuElecPairCollection> dummyPATMuElecPairRefProd;
+    edm::Ptr<PATMuElecPair> dummyPATMuElecPairPtr;
+    edm::AssociationVector<edm::RefProd<PATMuElecPairCollection>, std::vector<int> > dummyPATMuElecPairToMEtAssociation;
+    edm::Wrapper<edm::AssociationVector<edm::RefProd<PATMuElecPairCollection>, std::vector<int> > > dummyPATMuElecPairToMEtAssociationWrapper;
   };
 }

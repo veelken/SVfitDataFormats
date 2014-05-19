@@ -414,6 +414,7 @@ typedef CompositePtrCandidateT1T2MEt<pat::Electron, pat::Tau> PATElecTauPair;
 typedef CompositePtrCandidateT1T2MEt<pat::Muon, pat::Tau> PATMuTauPair;
 typedef CompositePtrCandidateT1T2MEt<pat::Tau, pat::Tau> PATDiTauPair;
 typedef CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> PATElecMuPair;
+typedef CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron> PATMuElecPair;
 typedef CompositePtrCandidateT1T2MEt<pat::Electron, pat::Electron> PATDiElecPair;
 typedef CompositePtrCandidateT1T2MEt<pat::Muon, pat::Muon> PATDiMuPair;
 

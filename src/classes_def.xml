@@ -121,4 +121,14 @@
   <class name="edm::RefVector<PATElecMuPairCollection,PATElecMuPair,edm::refhelper::FindUsingAdvance<PATElecMuPairCollection,PATElecMuPair> >"/>
   <class name="edm::RefProd<PATElecMuPairCollection>"/>
   <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Electron, pat::Muon> >"/>
+
+  <!-- create dictionaries for PATMuElecPair objects -->
+  <class name="CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron>"/>
+  <class name="std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron> >"/>
+  <class name="edm::Wrapper<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron> >"/>
+  <class name="edm::Wrapper<std::vector<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron> > >"/>
+  <class name="edm::Ref<PATMuElecPairCollection,PATMuElecPair,edm::refhelper::FindUsingAdvance<PATMuElecPairCollection,PATMuElecPair> >"/>
+  <class name="edm::RefVector<PATMuElecPairCollection,PATMuElecPair,edm::refhelper::FindUsingAdvance<PATMuElecPairCollection,PATMuElecPair> >"/>
+  <class name="edm::RefProd<PATMuElecPairCollection>"/>
+  <class name="edm::Ptr<CompositePtrCandidateT1T2MEt<pat::Muon, pat::Electron> >"/>
 </lcgdict>
