@@ -65,6 +65,24 @@ class SVfitResonanceHypothesisSummary
 
   bool isValidSolution() const { return mass_isValid_; }
 
+  void addUserFloat(const std::string& key, double value)
+  {
+    userFloatKeys_.push_back(key);
+    userFloatValues_.push_back(value);
+  }
+  bool hasUserFloat(const std::string& key) const
+  {
+    return (std::find(userFloatKeys_.begin(), userFloatKeys_.end(), key) != userFloatKeys_.end());
+  }
+  double userFloat(const std::string& key) const 
+  {
+    std::vector<std::string>::const_iterator it = std::find(userFloatKeys_.begin(), userFloatKeys_.end(), key);
+    if ( it != userFloatKeys_.end() ) {
+      return userFloatValues_[it - userFloatKeys_.begin()];
+    }
+    return 0.0;
+  }
+
   virtual void print(std::ostream& stream) const
   {
     stream << "<SVfitResonanceHypothesisSummary::print>:" << std::endl;
@@ -74,6 +92,13 @@ class SVfitResonanceHypothesisSummary
     if ( pt_isValid_   ) stream << " Pt   = " << pt_   << " + " << ptErrUp_   << " - " << ptErrDown_   << std::endl;
     if ( eta_isValid_  ) stream << " eta  = " << eta_  << " + " << etaErrUp_  << " - " << etaErrDown_  << std::endl;
     if ( phi_isValid_  ) stream << " phi  = " << phi_  << " + " << phiErrUp_  << " - " << phiErrDown_  << std::endl;
+    size_t numUserFloats = userFloatKeys_.size();
+    if ( numUserFloats > 0 ) {
+      stream << " userFloats:" << std::endl;
+      for ( size_t idxUserFloat = 0; idxUserFloat < numUserFloats; ++idxUserFloat ) {
+	stream << "  #" << idxUserFloat << ": " << userFloatKeys_.at(idxUserFloat) << " = " << userFloatValues_.at(idxUserFloat) << std::endl;
+      }
+    }
     for ( edm::OwnVector<SVfitSingleParticleHypothesisSummary>::const_iterator daughter = daughters_.begin();
           daughter != daughters_.end(); ++daughter ) {
       daughter->print(stream);
@@ -111,6 +136,10 @@ class SVfitResonanceHypothesisSummary
   double phiErrUp_;
   double phiErrDown_;
   bool phi_isValid_;
+
+  /// additional information added as "user floats" (like in the PAT objects)
+  std::vector<std::string> userFloatKeys_;  
+  std::vector<double> userFloatValues_;  
 };
 
 #endif

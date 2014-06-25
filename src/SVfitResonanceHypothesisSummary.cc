@@ -20,7 +20,9 @@ SVfitResonanceHypothesisSummary::SVfitResonanceHypothesisSummary(const SVfitReso
     phi_(bluePrint.phi_),
     phiErrUp_(bluePrint.phiErrUp_),
     phiErrDown_(bluePrint.phiErrDown_),
-    phi_isValid_(bluePrint.phi_isValid_)
+    phi_isValid_(bluePrint.phi_isValid_),
+    userFloatKeys_(bluePrint.userFloatKeys_),
+    userFloatValues_(bluePrint.userFloatValues_)
 {}
 
 SVfitResonanceHypothesisSummary::SVfitResonanceHypothesisSummary(const SVfitResonanceHypothesisBase& bluePrint)
@@ -59,6 +61,8 @@ SVfitResonanceHypothesisSummary::SVfitResonanceHypothesisSummary(const SVfitReso
     phiErrUp_ = bluePrint_nonbase->phiErrUp();
     phiErrDown_ = bluePrint_nonbase->phiErrDown();
     phi_isValid_ = bluePrint_nonbase->phi_isValid();
+    userFloatKeys_ = bluePrint_nonbase->userFloatKeys_;
+    userFloatValues_ = bluePrint_nonbase->userFloatValues_;    
   }
 }
 
@@ -82,6 +86,8 @@ SVfitResonanceHypothesisSummary& SVfitResonanceHypothesisSummary::operator=(cons
   phiErrUp_ = bluePrint.phiErrUp_;
   phiErrDown_ = bluePrint.phiErrDown_;
   phi_isValid_ = bluePrint.phi_isValid_;
+  userFloatKeys_ = bluePrint.userFloatKeys_;
+  userFloatValues_ = bluePrint.userFloatValues_;
   return (*this);
 }
 

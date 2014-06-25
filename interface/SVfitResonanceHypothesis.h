@@ -76,6 +76,13 @@ class SVfitResonanceHypothesis : public SVfitResonanceHypothesisBase
     else stream << " mass = " << p4_fitted().mass() << std::endl;
     stream << "(prod. angle = " << prod_angle_rf_ << ")" << std::endl;
     stream << " isValidSolution = " << isValidSolution_ << std::endl;
+    size_t numUserFloats = userFloatKeys_.size();
+    if ( numUserFloats > 0 ) {
+      stream << " userFloats:" << std::endl;
+      for ( size_t idxUserFloat = 0; idxUserFloat < numUserFloats; ++idxUserFloat ) {
+	stream << "  #" << idxUserFloat << ": " << userFloatKeys_.at(idxUserFloat) << " = " << userFloatValues_.at(idxUserFloat) << std::endl;
+      }
+    }
     for ( edm::OwnVector<SVfitSingleParticleHypothesisBase>::const_iterator daughter = daughters_.begin();
           daughter != daughters_.end(); ++daughter ) {
       daughter->print(stream);
@@ -87,6 +94,24 @@ class SVfitResonanceHypothesis : public SVfitResonanceHypothesisBase
 
   enum { kPolUndefined, kPolLR, kPolRL, kPolLL, kPolRR, kPolWL, kPolWR, kPolWT };
 
+  void addUserFloat(const std::string& key, double value)
+  {
+    userFloatKeys_.push_back(key);
+    userFloatValues_.push_back(value);
+  }
+  bool hasUserFloat(const std::string& key) const
+  {
+    return (std::find(userFloatKeys_.begin(), userFloatKeys_.end(), key) != userFloatKeys_.end());
+  }
+  double userFloat(const std::string& key) const 
+  {
+    std::vector<std::string>::const_iterator it = std::find(userFloatKeys_.begin(), userFloatKeys_.end(), key);
+    if ( it != userFloatKeys_.end() ) {
+      return userFloatValues_[it - userFloatKeys_.begin()];
+    }
+    return 0.0;
+  }
+
   friend class SVfitEventBuilder;
   friend class SVfitResonanceBuilderBase;
   friend class SVfitResonanceBuilder;
@@ -95,6 +120,7 @@ class SVfitResonanceHypothesis : public SVfitResonanceHypothesisBase
   friend class SVfitAlgorithmByIntegration2;
   friend class SVfitResonanceLikelihoodMatrixElementW;
   template<typename T1, typename T2> friend class CompositePtrCandidateT1T2MEt;
+  friend class SVfitResonanceHypothesisSummary;
 
  private:
 
@@ -136,6 +162,10 @@ class SVfitResonanceHypothesis : public SVfitResonanceHypothesisBase
   std::vector<int> polHandedness_;
   std::vector<int> polSign_;
   unsigned numPolStates_;
+
+  /// additional information added as "user floats" (like in the PAT objects)
+  std::vector<std::string> userFloatKeys_;  
+  std::vector<double> userFloatValues_;  
 };
 
 #endif

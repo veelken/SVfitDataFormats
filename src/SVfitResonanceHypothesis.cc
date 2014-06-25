@@ -29,9 +29,11 @@ SVfitResonanceHypothesis::SVfitResonanceHypothesis(const SVfitResonanceHypothesi
     prod_angle_rf_(bluePrint.prod_angle_rf_),
     polHandedness_(bluePrint.polHandedness_),
     polSign_(bluePrint.polSign_),
-    numPolStates_(bluePrint.numPolStates_)
+    numPolStates_(bluePrint.numPolStates_),
+    userFloatKeys_(bluePrint.userFloatKeys_),
+    userFloatValues_(bluePrint.userFloatValues_)
 {
-  size_t  numDaughters = daughters_.size();
+  size_t numDaughters = daughters_.size();
   for ( size_t iDaughter = 0; iDaughter < numDaughters; iDaughter++ ) {
     this->daughter(iDaughter)->setMother(this);
   }
@@ -60,10 +62,12 @@ SVfitResonanceHypothesis& SVfitResonanceHypothesis::operator=(const SVfitResonan
   polHandedness_ = bluePrint.polHandedness_;
   polSign_ = bluePrint.polSign_;
   numPolStates_ = bluePrint.numPolStates_;
-  size_t  numDaughters = daughters_.size();
+  size_t numDaughters = daughters_.size();
   for ( size_t iDaughter = 0; iDaughter < numDaughters; iDaughter++ ) {
     this->daughter(iDaughter)->setMother(this);
   }
+  userFloatKeys_ = bluePrint.userFloatKeys_;
+  userFloatValues_ = bluePrint.userFloatValues_;
   return (*this);
 }
 

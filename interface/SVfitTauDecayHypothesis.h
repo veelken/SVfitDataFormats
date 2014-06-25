@@ -20,7 +20,7 @@
 #include "RecoVertex/VertexPrimitives/interface/TransientVertex.h"
 
 #include "AnalysisDataFormats/SVfit/interface/SVfitTauDecayHypothesisBaseT.h"
-#include "AnalysisDataFormats/SVfit/interface/SVfitSingleParticleHypothesisBase.h"
+#include "AnalysisDataFormats/SVfit/interface/SVfitSingleParticleHypothesis.h"
 
 class SVfitTauDecayHypothesis : public SVfitTauDecayHypothesisBaseT<SVfitSingleParticleHypothesis>
 {
